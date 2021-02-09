@@ -1,11 +1,13 @@
 package github.fushaolei;
 
+import java.io.Serializable;
+
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/9
  * @desc:
  */
-public class FileEntity {
+public class FileEntity implements Serializable {
     private String name;
     private String path;
     private String sha;

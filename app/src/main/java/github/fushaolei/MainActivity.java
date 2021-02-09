@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +67,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(glm);
         recyclerView.setAdapter(adapter);
 
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                list = adapter.getData();
+                intent.putExtra("entity", list.get(position));
+                startActivity(intent);
+            }
+        });
     }
 
 
