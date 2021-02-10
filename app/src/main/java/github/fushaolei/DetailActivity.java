@@ -37,15 +37,17 @@ public class DetailActivity extends AppCompatActivity {
                 .into(imageView);
 
 
-
         toolbar = findViewById(R.id.tool_bar);
 
         toolbar.setNavigationOnClickListener((v) -> finish());
-        toolbar.setTitle(entity.getName());
+//        toolbar.setTitle(entity.getName());
         toolbar.setOnMenuItemClickListener((v) -> {
             switch (v.getItemId()) {
                 case R.id.detail_delete:
                     Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.detail_share:
+                    Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.detail_edit:
                     Toast.makeText(this, "edit", Toast.LENGTH_SHORT).show();

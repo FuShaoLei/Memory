@@ -3,12 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/detail_edit"
+        android:icon="@drawable/ic_edit"
         android:title="修改"
-        android:icon="@drawable/ic_baseline_edit_24"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/detail_share"
+        android:icon="@drawable/ic_share"
+        android:title="分享"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/detail_delete"
+        android:icon="@drawable/ic_delete"
         android:title="删除"
-        android:icon="@drawable/ic_baseline_delete_24"
         app:showAsAction="ifRoom" />
 </menu>
