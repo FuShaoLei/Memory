@@ -24,7 +24,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_detail);
         Intent intent = getIntent();
         if (intent != null) {
-            entity = (FileEntity) intent.getSerializableExtra("entity");
+            entity = intent.getParcelableExtra("entity");
         }
 
         getSupportActionBar().hide();
