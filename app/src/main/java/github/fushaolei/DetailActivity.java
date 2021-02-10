@@ -4,19 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.appbar.MaterialToolbar;
 
-public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class DetailActivity extends AppCompatActivity {
     private ImageView imageView;
     private FileEntity entity;
-    private TextView name;
-    private ImageView back;
-    private ImageView delete;
+    private MaterialToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,31 +28,32 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         getSupportActionBar().hide();
-        imageView = findViewById(R.id.iv_detail);
-        name = findViewById(R.id.tv_name);
-        back = findViewById(R.id.iv_back);
-        delete = findViewById(R.id.iv_delete);
 
-        name.setText(entity.getName());
+        imageView = findViewById(R.id.iv_detail);
+        Log.e("=>", "https://cdn.jsdelivr.net/gh/fushaolei/img2/" + entity.getPath());
 
         Glide.with(this)
                 .load("https://cdn.jsdelivr.net/gh/fushaolei/img2/" + entity.getPath())
                 .into(imageView);
 
-        back.setOnClickListener(this);
-        delete.setOnClickListener(this);
+
+
+        toolbar = findViewById(R.id.tool_bar);
+
+        toolbar.setNavigationOnClickListener((v) -> finish());
+        toolbar.setTitle(entity.getName());
+        toolbar.setOnMenuItemClickListener((v) -> {
+            switch (v.getItemId()) {
+                case R.id.detail_delete:
+                    Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.detail_edit:
+                    Toast.makeText(this, "edit", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            return true;
+        });
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_back:
-                finish();
-                break;
-            case R.id.iv_delete:
-                Toast.makeText(this, "sha:" + entity.getSha(), Toast.LENGTH_SHORT).show();
-                break;
-        }
-    }
 }
