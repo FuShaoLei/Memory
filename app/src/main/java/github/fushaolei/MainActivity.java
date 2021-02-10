@@ -1,6 +1,7 @@
 package github.fushaolei;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +28,28 @@ public class MainActivity extends AppCompatActivity {
     private ImageAdapter adapter;
     private List<FileEntity> list;
 
+    private MaterialToolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-
+        init();
         initView();
         httpBegin();
+    }
+
+    private void init() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        toolbar = findViewById(R.id.tool_bar);
+        navigationView = findViewById(R.id.navigation_view);
+
+        toolbar.setNavigationOnClickListener((v) -> {
+            drawerLayout.open();
+        });
     }
 
     private void httpBegin() {
