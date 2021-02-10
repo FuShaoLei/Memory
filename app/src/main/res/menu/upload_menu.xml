@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/album_upload"
+        android:title="相册上传" />
+    <item
+        android:id="@+id/camera_upload"
+        android:title="拍照上传" />
+</menu>

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
         init();
         initView();
         httpBegin();
@@ -49,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar.setNavigationOnClickListener((v) -> {
             drawerLayout.open();
+        });
+        navigationView.setNavigationItemSelectedListener((v) -> {
+            drawerLayout.close();
+            switch (v.getItemId()) {
+                case R.id.setting:
+                    startActivity(new Intent(MainActivity.this, SettingActivity.class));
+                    break;
+            }
+            return true;
         });
     }
 

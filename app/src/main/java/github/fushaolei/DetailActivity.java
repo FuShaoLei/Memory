@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
             entity = intent.getParcelableExtra("entity");
         }
 
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         imageView = findViewById(R.id.iv_detail);
         Log.e("=>", "https://cdn.jsdelivr.net/gh/fushaolei/img2/" + entity.getPath());
