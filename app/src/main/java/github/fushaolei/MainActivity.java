@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         String fileName = UploadHelper.getFileName(filePath);
         Log.e("fileName => ", fileName);
         Call<BaseResponse> call
-                = service.insertRepo("token "+user.getToken(),
+                = service.insertRepo("token " + user.getToken(),
                 user.getName(),
                 user.getRepo(),
                 fileName,
@@ -155,12 +155,13 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
-                Log.e("onResponse => ", response.code() + "");
+                int code = response.code();
+                Toast.makeText(MainActivity.this, code + "", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<BaseResponse> call, Throwable t) {
-                Log.e("onFailure => ", "");
+                Toast.makeText(MainActivity.this, "onFailure", Toast.LENGTH_SHORT).show();
             }
         });
     }
