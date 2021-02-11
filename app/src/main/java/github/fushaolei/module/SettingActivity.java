@@ -1,15 +1,22 @@
-package github.fushaolei;
+package github.fushaolei.module;
 
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
+import github.fushaolei.utils.MMKVHelper;
+import github.fushaolei.R;
+import github.fushaolei.entity.User;
+
+/**
+ * @Auther: fushaolei
+ * @datetime: 2021/2/9
+ * @desc: 设置
+ */
 public class SettingActivity extends AppCompatActivity {
     private MaterialToolbar toolbar;
     private EditText user, repo, token;

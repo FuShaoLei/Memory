@@ -1,4 +1,4 @@
-package github.fushaolei;
+package github.fushaolei.app;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
-package github.fushaolei;
+package github.fushaolei.module;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,12 +26,26 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
+import github.fushaolei.service.GitHubService;
+import github.fushaolei.adapter.ImageAdapter;
+import github.fushaolei.utils.MMKVHelper;
+import github.fushaolei.R;
+import github.fushaolei.utils.UploadHelper;
+import github.fushaolei.entity.BaseResponse;
+import github.fushaolei.entity.CreateBody;
+import github.fushaolei.entity.FileEntity;
+import github.fushaolei.entity.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * @Auther: fushaolei
+ * @datetime: 2021/2/9
+ * @desc: 主页
+ */
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ImageAdapter adapter;

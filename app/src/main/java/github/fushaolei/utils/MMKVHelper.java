@@ -1,11 +1,13 @@
-package github.fushaolei;
+package github.fushaolei.utils;
 
 import com.tencent.mmkv.MMKV;
+
+import github.fushaolei.entity.User;
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/11
- * @desc:
+ * @desc: MMKV 存储帮助类
  */
 public class MMKVHelper {
     private static MMKV kv = MMKV.defaultMMKV();

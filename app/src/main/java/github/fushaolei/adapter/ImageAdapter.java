@@ -1,4 +1,4 @@
-package github.fushaolei;
+package github.fushaolei.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -11,10 +11,15 @@ import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.List;
 
+import github.fushaolei.R;
+import github.fushaolei.entity.FileEntity;
+import github.fushaolei.entity.User;
+import github.fushaolei.utils.MMKVHelper;
+
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/9
- * @desc:
+ * @desc: image适配器
  */
 public class ImageAdapter extends BaseQuickAdapter<FileEntity, ImageAdapter.ViewHolder> {
 

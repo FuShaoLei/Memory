@@ -1,8 +1,11 @@
-package github.fushaolei;
+package github.fushaolei.service;
 
 
 import java.util.List;
 
+import github.fushaolei.entity.BaseResponse;
+import github.fushaolei.entity.CreateBody;
+import github.fushaolei.entity.FileEntity;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -14,7 +17,7 @@ import retrofit2.http.Path;
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/9
- * @desc:
+ * @desc: 接口服务
  */
 public interface GitHubService {
 

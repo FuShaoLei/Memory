@@ -1,18 +1,25 @@
-package github.fushaolei;
+package github.fushaolei.module;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 
+import github.fushaolei.utils.MMKVHelper;
+import github.fushaolei.R;
+import github.fushaolei.entity.FileEntity;
+import github.fushaolei.entity.User;
+
+/**
+ * @Auther: fushaolei
+ * @datetime: 2021/2/9
+ * @desc: 图片详情页
+ */
 public class DetailActivity extends AppCompatActivity {
     private ImageView imageView;
     private FileEntity entity;

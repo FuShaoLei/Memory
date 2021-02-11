@@ -1,4 +1,4 @@
-package github.fushaolei;
+package github.fushaolei.entity;
 
 /**
  * @Auther: fushaolei

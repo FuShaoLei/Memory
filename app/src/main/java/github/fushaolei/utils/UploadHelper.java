@@ -1,4 +1,4 @@
-package github.fushaolei;
+package github.fushaolei.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -15,17 +15,11 @@ import android.util.Base64;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/11
- * @desc:
+ * @desc: 上传图片帮助类
  */
 public class UploadHelper {
     /**
