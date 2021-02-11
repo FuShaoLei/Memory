@@ -6,4 +6,7 @@
     <item
         android:id="@+id/camera_upload"
         android:title="拍照上传" />
+    <item
+        android:id="@+id/update"
+        android:title="更新照片"/>
 </menu>

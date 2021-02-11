@@ -18,14 +18,16 @@ import java.util.List;
  */
 public class ImageAdapter extends BaseQuickAdapter<FileEntity, ImageAdapter.ViewHolder> {
 
+    //TODO 这里其实要做一个过滤，过滤掉那些不是图片的东西
     public ImageAdapter(int layoutResId, @Nullable List<FileEntity> data) {
         super(layoutResId, data);
     }
 
     @Override
     protected void convert(ViewHolder helper, FileEntity item) {
+        User user = MMKVHelper.getUser();
         Glide.with(mContext)
-                .load("https://cdn.jsdelivr.net/gh/fushaolei/img2/" + item.getPath())
+                .load("https://cdn.jsdelivr.net/gh/" + user.getName() + "/" + user.getRepo() + "/" + item.getPath())
                 .into(helper.imageView);
     }
 

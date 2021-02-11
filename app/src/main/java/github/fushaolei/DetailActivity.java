@@ -30,10 +30,10 @@ public class DetailActivity extends AppCompatActivity {
 //        getSupportActionBar().hide();
 
         imageView = findViewById(R.id.iv_detail);
-        Log.e("=>", "https://cdn.jsdelivr.net/gh/fushaolei/img2/" + entity.getPath());
 
+        User user = MMKVHelper.getUser();
         Glide.with(this)
-                .load("https://cdn.jsdelivr.net/gh/fushaolei/img2/" + entity.getPath())
+                .load("https://cdn.jsdelivr.net/gh/" + user.getName() + "/" + user.getRepo() + "/" + entity.getPath())
                 .into(imageView);
 
 
