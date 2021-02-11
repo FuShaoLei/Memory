@@ -2,13 +2,16 @@ package github.fushaolei.module;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import github.fushaolei.utils.MMKVHelper;
 import github.fushaolei.R;
@@ -47,11 +50,10 @@ public class DetailActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.tool_bar);
 
         toolbar.setNavigationOnClickListener((v) -> finish());
-//        toolbar.setTitle(entity.getName());
         toolbar.setOnMenuItemClickListener((v) -> {
             switch (v.getItemId()) {
                 case R.id.detail_delete:
-                    Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show();
+                    showDialog();
                     break;
                 case R.id.detail_share:
                     Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
@@ -62,6 +64,20 @@ public class DetailActivity extends AppCompatActivity {
             }
             return true;
         });
+
+    }
+
+    private void showDialog() {
+        new MaterialAlertDialogBuilder(this)
+                .setMessage("确定删除吗？")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(DetailActivity.this, which + "", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
 
     }
 

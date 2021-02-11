@@ -5,6 +5,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!--自定义AlertDialog-->
+        <item name="materialAlertDialogTheme">@style/MyDialog</item>
+    </style>
+
+    <style name="MyDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">#333</item>
     </style>
 
 </resources>
