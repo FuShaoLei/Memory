@@ -70,6 +70,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     //请求状态码
     private static int REQUEST_PERMISSION_CODE = 1;
     private int SELECT_PHOTO = 100;
+    private int ENTER_DETAIL = 101;
+
+    private int RESULT_IMG = 233;
 
     @Override
     protected void initialize() {
@@ -116,7 +119,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             Intent intent = new Intent(MainActivity.this, DetailActivity.class);
             list = adapter.getData();
             intent.putExtra("entity", list.get(position));
-            startActivity(intent);
+            startActivityForResult(intent, ENTER_DETAIL);
         });
     }
 
@@ -150,6 +153,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         if (requestCode == SELECT_PHOTO && resultCode == RESULT_OK) {
             Uri uri = data.getData();
             showUploadDialog(uri);
+        } else if (requestCode == ENTER_DETAIL && resultCode == RESULT_IMG) {
+            Log.e("=>", "有照片被删除了....");
+            rootPresenter.getRepoList();
         }
     }
 
@@ -186,6 +192,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public void uploadSuccess() {
         ToastHelper.show("上传成功！");
+        rootPresenter.getRepoList();
     }
 
     @Override

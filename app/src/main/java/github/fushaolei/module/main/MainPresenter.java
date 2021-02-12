@@ -3,9 +3,11 @@ package github.fushaolei.module.main;
 import android.net.Uri;
 import android.util.Log;
 
+import java.util.Collections;
 import java.util.List;
 
 import github.fushaolei.base.BasePresenter;
+import github.fushaolei.constant.CommitConstant;
 import github.fushaolei.entity.BaseResponse;
 import github.fushaolei.entity.CreateBody;
 import github.fushaolei.entity.FileEntity;
@@ -45,7 +47,9 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
             @Override
             public void onNext(Response<List<FileEntity>> listResponse) {
                 if (listResponse.code() == 200 || listResponse.code() == 201) {
-                    rootView.updateRecycler(listResponse.body());
+                    List<FileEntity> entityList = listResponse.body();
+                    Collections.reverse(entityList);
+                    rootView.updateRecycler(entityList);
                 }
             }
 
@@ -76,7 +80,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
     private void uploadFile(String path) {
 //        rootView.showLoading();
-        CreateBody body = new CreateBody("Github upload api test111", UploadHelper.encodeImageToBase64(path));
+        CreateBody body = new CreateBody(CommitConstant.UPLOAD, UploadHelper.encodeImageToBase64(path));
         User user = MMKVHelper.getUser();
         String fileName = UploadHelper.getFileName(path);
 

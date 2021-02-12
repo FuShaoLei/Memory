@@ -89,6 +89,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
     @Override
     public void deleteSuccess() {
         ToastHelper.show("删除成功！");
+        DetailActivity.this.setResult(233);
         finish();
     }
 

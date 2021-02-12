@@ -28,6 +28,10 @@ public class ImageAdapter extends BaseQuickAdapter<FileEntity, ImageAdapter.View
         super(layoutResId, data);
     }
 
+    public void clearData(){
+
+    }
+
     @Override
     protected void convert(ViewHolder helper, FileEntity item) {
         User user = MMKVHelper.getUser();

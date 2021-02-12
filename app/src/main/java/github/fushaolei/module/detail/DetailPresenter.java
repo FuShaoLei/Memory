@@ -3,6 +3,7 @@ package github.fushaolei.module.detail;
 import android.util.Log;
 
 import github.fushaolei.base.BasePresenter;
+import github.fushaolei.constant.CommitConstant;
 import github.fushaolei.entity.BaseResponse;
 import github.fushaolei.entity.DeleteBody;
 import github.fushaolei.entity.User;
@@ -28,7 +29,7 @@ public class DetailPresenter extends BasePresenter<DetailContract.View> implemen
     @Override
     public void delete(String path, String sha) {
         Log.e("=>", "presenter delete begin");
-        DeleteBody body = new DeleteBody("GitHub delete api test 111", sha);
+        DeleteBody body = new DeleteBody(CommitConstant.DELETE, sha);
         rootView.showLoading();
         User user = MMKVHelper.getUser();
         Observable<Response<BaseResponse>> observable =
