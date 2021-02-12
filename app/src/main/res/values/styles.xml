@@ -6,12 +6,19 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="android:windowLightStatusBar">true</item>
         <!--自定义AlertDialog-->
         <item name="materialAlertDialogTheme">@style/MyDialog</item>
+        
     </style>
 
     <style name="MyDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="colorPrimary">#333</item>
+    </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#333</item>
+        <item name="android:textColor">#333</item>
     </style>
 
 </resources>

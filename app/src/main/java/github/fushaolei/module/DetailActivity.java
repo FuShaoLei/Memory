@@ -2,6 +2,7 @@ package github.fushaolei.module;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -74,6 +75,9 @@ public class DetailActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(DetailActivity.this, which + "", Toast.LENGTH_SHORT).show();
+                        ProgressDialog progressDialog = new ProgressDialog(DetailActivity.this, R.style.MyAlertDialogStyle);
+                        progressDialog.setMessage("删除中...");
+                        progressDialog.show();
                     }
                 })
                 .setNegativeButton("取消", null)
