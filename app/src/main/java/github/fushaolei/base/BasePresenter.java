@@ -8,7 +8,7 @@ import github.fushaolei.service.ServiceManager;
  * @datetime: 2021/2/12
  * @desc:
  */
-public class BasePresenter<V> {
+public abstract class BasePresenter<V> {
     protected V rootView;
     protected GitHubService service
             = ServiceManager.getInstance().getService();

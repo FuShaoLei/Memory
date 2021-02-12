@@ -27,7 +27,7 @@ public interface GitHubService {
 
     @Headers("Accept: application/vnd.github.v3+json")
     @GET("/repos/{user}/{repo}/contents/")
-    Call<List<FileEntity>> getRepoList(@Path("user") String name, @Path("repo") String repo);
+    Observable<Response<List<FileEntity>>> getRepoList(@Path("user") String name, @Path("repo") String repo);
 
 
     @Headers({
@@ -35,19 +35,19 @@ public interface GitHubService {
             "Content-Type: application/json"
     })
     @PUT("/repos/{user}/{repo}/contents/{path}")
-    Call<BaseResponse> insertRepo(@Header("Authorization") String token,
-                                  @Path("user") String user,
-                                  @Path("repo") String repo,
-                                  @Path("path") String path,
-                                  @Body CreateBody createBody);
+    Observable<Response<BaseResponse>> insertRepo(@Header("Authorization") String token,
+                                                  @Path("user") String user,
+                                                  @Path("repo") String repo,
+                                                  @Path("path") String path,
+                                                  @Body CreateBody createBody);
 
     @Headers({
             "Accept: application/vnd.github.v3+json"
     })
     @HTTP(method = "DELETE", path = "/repos/{owner}/{repo}/contents/{path}", hasBody = true)
     Observable<Response<BaseResponse>> deleteFile(@Header("Authorization") String token,
-                                    @Path("owner") String user,
-                                    @Path("repo") String repo,
-                                    @Path("path") String path,
-                                    @Body DeleteBody body);
+                                                  @Path("owner") String user,
+                                                  @Path("repo") String repo,
+                                                  @Path("path") String path,
+                                                  @Body DeleteBody body);
 }

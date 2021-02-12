@@ -17,7 +17,7 @@
             android:name=".module.SettingActivity"
             android:label="@string/title_activity_setting"></activity>
         <activity android:name=".module.detail.DetailActivity" />
-        <activity android:name=".module.MainActivity">
+        <activity android:name=".module.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

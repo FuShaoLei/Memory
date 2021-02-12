@@ -15,6 +15,8 @@ import android.util.Base64;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @Auther: fushaolei
@@ -146,13 +148,18 @@ public class UploadHelper {
      * @return
      */
     public static String getFileName(String text) {
-        return System.currentTimeMillis() + getFileSuffix(text);
+        return getFormatDate() + getFileSuffix(text);
     }
 
 
+    public static String getFormatDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        return sdf.format(new Date());
+    }
+
     /**
      * 获取文件的后缀名
-     *
+     * TODO 如果是 aa.bb.png 这样格式的时候会错误，这里待优化
      * @param text
      * @return
      */

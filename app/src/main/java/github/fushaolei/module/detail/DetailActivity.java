@@ -1,25 +1,16 @@
 package github.fushaolei.module.detail;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import github.fushaolei.base.BaseActivity;
 import github.fushaolei.utils.GlideHelper;
-import github.fushaolei.utils.MMKVHelper;
 import github.fushaolei.R;
 import github.fushaolei.entity.FileEntity;
-import github.fushaolei.entity.User;
 import github.fushaolei.utils.ProgressDialogHelper;
 import github.fushaolei.utils.ToastHelper;
 
@@ -61,7 +52,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
 
     @Override
     protected void initView() {
-        GlideHelper.loadImage(entity.getPath(), imageView);
+        GlideHelper.loadImageCDN(entity.getPath(), imageView);
     }
 
     @Override
