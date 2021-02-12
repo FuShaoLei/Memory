@@ -1,5 +1,9 @@
 package github.fushaolei.entity;
 
+import okhttp3.MediaType;
+import okhttp3.ResponseBody;
+import okio.BufferedSource;
+
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/11
@@ -23,5 +27,13 @@ public class BaseResponse {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseResponse{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                '}';
     }
 }

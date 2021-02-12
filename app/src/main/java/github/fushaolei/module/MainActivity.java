@@ -26,6 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
+import github.fushaolei.module.detail.DetailActivity;
 import github.fushaolei.service.GitHubService;
 import github.fushaolei.adapter.ImageAdapter;
 import github.fushaolei.utils.MMKVHelper;

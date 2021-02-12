@@ -77,4 +77,14 @@ public class FileEntity implements Parcelable {
         dest.writeString(sha);
         dest.writeString(type);
     }
+
+    @Override
+    public String toString() {
+        return "FileEntity{" +
+                "name='" + name + '\'' +
+                ", path='" + path + '\'' +
+                ", sha='" + sha + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
