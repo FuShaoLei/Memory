@@ -5,8 +5,8 @@
         android:icon="@drawable/ic_setting"
         android:title="设置" />
     <item
-        android:id="@+id/about"
-        android:icon="@drawable/ic_toys"
-        android:title="关于" />
+        android:id="@+id/readme"
+        android:icon="@drawable/ic_readme"
+        android:title="README" />
 
 </menu>

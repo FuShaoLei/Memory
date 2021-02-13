@@ -31,7 +31,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import github.fushaolei.base.BaseActivity;
+import github.fushaolei.constant.WebViewConstant;
 import github.fushaolei.module.SettingActivity;
+import github.fushaolei.module.WebViewActivity;
 import github.fushaolei.module.detail.DetailActivity;
 import github.fushaolei.service.GitHubService;
 import github.fushaolei.adapter.ImageAdapter;
@@ -103,6 +105,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             switch (v.getItemId()) {
                 case R.id.setting:
                     startActivity(new Intent(MainActivity.this, SettingActivity.class));
+                    break;
+                case R.id.readme:
+                    Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                    intent.putExtra("path", WebViewConstant.README);
+                    startActivity(intent);
                     break;
             }
             return true;

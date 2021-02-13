@@ -12,10 +12,12 @@
         android:name=".app.App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".module.SettingActivity"
             android:label="@string/title_activity_setting"></activity>
+        <activity android:name=".module.WebViewActivity"/>
         <activity android:name=".module.detail.DetailActivity" />
         <activity android:name=".module.main.MainActivity">
             <intent-filter>
