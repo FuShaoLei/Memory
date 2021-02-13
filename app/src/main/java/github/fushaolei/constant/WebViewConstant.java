@@ -6,5 +6,5 @@ package github.fushaolei.constant;
  * @desc:
  */
 public interface WebViewConstant {
-    String README = "https://github.com/FuShaoLei/hexo-theme-white/blob/master/README.md";
+    String README = "https://www.yuque.com/fushao-shm0d/zn6eu5/ny150b";
 }
