@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.Manifest;
 import android.content.Intent;
@@ -56,6 +57,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @desc: 主页
  */
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+    private SwipeRefreshLayout refreshLayout;
     private RecyclerView recyclerView;
     private MaterialToolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -76,6 +78,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initialize() {
+        refreshLayout = findViewById(R.id.swipe_refresh);
         recyclerView = findViewById(R.id.recycler_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.tool_bar);
@@ -91,13 +94,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             switch (v.getItemId()) {
                 case R.id.album_upload:
                     selectImg();
-                    break;
-                case R.id.update:
-                    if (MMKVHelper.isUser()) {
-                        rootPresenter.getRepoList();
-                    } else {
-                        Toast.makeText(this, "未配置！", Toast.LENGTH_SHORT).show();
-                    }
                     break;
             }
             return true;
@@ -120,6 +116,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             list = adapter.getData();
             intent.putExtra("entity", list.get(position));
             startActivityForResult(intent, ENTER_DETAIL);
+        });
+        refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorBlack));
+        refreshLayout.setOnRefreshListener(() -> {
+            rootPresenter.getRepoList();
         });
     }
 
@@ -198,6 +198,20 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public void uploadFail() {
         ToastHelper.show("上传失败...");
+    }
+
+    @Override
+    public void showRefresh() {
+        if (refreshLayout != null && !refreshLayout.isRefreshing()) {
+            refreshLayout.setRefreshing(true);
+        }
+    }
+
+    @Override
+    public void hideRefresh() {
+        if (refreshLayout != null && refreshLayout.isRefreshing()) {
+            refreshLayout.setRefreshing(false);
+        }
     }
 
     private void permissionChecking() {

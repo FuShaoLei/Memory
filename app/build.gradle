@@ -54,4 +54,6 @@ dependencies {
     implementation "androidx.drawerlayout:drawerlayout:1.1.1"
     //mmkv
     implementation 'com.tencent:mmkv-static:1.2.6'
+    //swiperefreshlayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }

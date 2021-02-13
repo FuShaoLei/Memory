@@ -34,6 +34,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
     @Override
     public void getRepoList() {
+        rootView.showRefresh();
         User user = MMKVHelper.getUser();
         Observable<Response<List<FileEntity>>> observable
                 = service.getRepoList(user.getName(), user.getRepo());
@@ -46,6 +47,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
             @Override
             public void onNext(Response<List<FileEntity>> listResponse) {
+                rootView.hideRefresh();
                 if (listResponse.code() == 200 || listResponse.code() == 201) {
                     List<FileEntity> entityList = listResponse.body();
                     Collections.reverse(entityList);

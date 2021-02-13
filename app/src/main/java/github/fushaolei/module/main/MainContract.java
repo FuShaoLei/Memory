@@ -18,6 +18,9 @@ public interface MainContract {
         void hideLoading();
         void uploadSuccess();
         void uploadFail();
+
+        void showRefresh();
+        void hideRefresh();
     }
 
     interface Presenter {
