@@ -2,7 +2,6 @@ package github.fushaolei.module.main;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,15 +13,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
@@ -32,10 +28,9 @@ import java.util.List;
 
 import github.fushaolei.base.BaseActivity;
 import github.fushaolei.constant.WebViewConstant;
-import github.fushaolei.module.SettingActivity;
+import github.fushaolei.module.setting.SettingActivity;
 import github.fushaolei.module.WebViewActivity;
 import github.fushaolei.module.detail.DetailActivity;
-import github.fushaolei.service.GitHubService;
 import github.fushaolei.adapter.ImageAdapter;
 import github.fushaolei.utils.GlideHelper;
 import github.fushaolei.utils.MMKVHelper;
@@ -43,15 +38,7 @@ import github.fushaolei.R;
 import github.fushaolei.utils.ProgressDialogHelper;
 import github.fushaolei.utils.ToastHelper;
 import github.fushaolei.utils.UploadHelper;
-import github.fushaolei.entity.BaseResponse;
-import github.fushaolei.entity.CreateBody;
 import github.fushaolei.entity.FileEntity;
-import github.fushaolei.entity.User;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * @Auther: fushaolei

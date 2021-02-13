@@ -21,4 +21,9 @@
         <item name="android:textColor">#333</item>
     </style>
 
+    <style name="MyInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/input_selector</item>
+        <item name="hintTextColor">#333</item>
+    </style>
+
 </resources>
