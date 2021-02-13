@@ -111,6 +111,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
             @Override
             public void onError(Throwable e) {
+                rootView.hideLoading();
                 rootView.uploadFail();
             }
 
