@@ -1,5 +1,8 @@
 package github.fushaolei.module.detail;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -8,9 +11,12 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import github.fushaolei.base.BaseActivity;
+import github.fushaolei.constant.HttpConstant;
+import github.fushaolei.entity.User;
 import github.fushaolei.utils.GlideHelper;
 import github.fushaolei.R;
 import github.fushaolei.entity.FileEntity;
+import github.fushaolei.utils.MMKVHelper;
 import github.fushaolei.utils.ProgressDialogHelper;
 import github.fushaolei.utils.ToastHelper;
 
@@ -39,8 +45,8 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                 case R.id.detail_delete:
                     showDialog();
                     break;
-                case R.id.detail_share:
-                    Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
+                case R.id.detail_copy:
+                    copy();
                     break;
                 case R.id.detail_edit:
                     Toast.makeText(this, "edit", Toast.LENGTH_SHORT).show();
@@ -48,6 +54,17 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
             }
             return true;
         });
+    }
+
+    private void copy() {
+        User user = MMKVHelper.getUser();
+        //获取剪贴板管理器：
+        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        // 创建普通字符型
+        ClipData mClipData = ClipData.newPlainText("Label", HttpConstant.DEFAULT_CDN + user.getName() + "/" + user.getRepo() + "/" + entity.getPath());
+        // 将ClipData内容放到系统剪贴板里。
+        cm.setPrimaryClip(mClipData);
+        ToastHelper.show("已复制连接到剪切板");
     }
 
     @Override

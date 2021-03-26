@@ -10,7 +10,7 @@ android {
     }
     defaultConfig {
         applicationId "github.fushaolei"
-        minSdkVersion 27
+        minSdkVersion 25
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
