@@ -1,27 +1,29 @@
-package github.fushaolei.utils;
+package github.fushaolei.utils
 
-import com.tencent.mmkv.MMKV;
-
-import github.fushaolei.entity.User;
+import com.tencent.mmkv.MMKV
+import github.fushaolei.entity.User
+import github.fushaolei.utils.MMKVHelper
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/11
  * @desc: MMKV 存储帮助类
  */
-public class MMKVHelper {
-    private static MMKV kv = MMKV.defaultMMKV();
-
-    public static void saveUser(User user) {
-        kv.encode("user", user);
+object MMKVHelper {
+    private val kv = MMKV.defaultMMKV()
+    @JvmStatic
+    fun saveUser(user: User?) {
+        kv.encode("user", user)
+    }
+    @JvmStatic
+    fun isUser(): Boolean {
+        return (kv.contains("user")
+                && kv.decodeParcelable("user", User::class.java) != null)
     }
 
-    public static boolean isUser() {
-        return kv.contains("user")
-                && kv.decodeParcelable("user", User.class) != null;
-    }
 
-    public static User getUser() {
-        return kv.decodeParcelable("user", User.class);
+    @JvmStatic
+    fun getUser(): User {
+        return kv.decodeParcelable("user", User::class.java)
     }
 }

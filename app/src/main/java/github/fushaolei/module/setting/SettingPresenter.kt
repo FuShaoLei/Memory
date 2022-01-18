@@ -1,32 +1,28 @@
-package github.fushaolei.module.setting;
+package github.fushaolei.module.setting
 
-import android.util.Log;
-
-import github.fushaolei.base.BasePresenter;
-import github.fushaolei.entity.User;
-import github.fushaolei.utils.MMKVHelper;
+import android.util.Log
+import github.fushaolei.utils.MMKVHelper.isUser
+import github.fushaolei.utils.MMKVHelper.getUser
+import github.fushaolei.base.BasePresenter
+import github.fushaolei.entity.User
+import github.fushaolei.utils.MMKVHelper
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/13
  * @desc:
  */
-public class SettingPresenter extends BasePresenter<SettingContract.View> implements SettingContract.Presenter {
-    public SettingPresenter(SettingContract.View rootView) {
-        super(rootView);
-    }
-
-    @Override
-    public void init() {
-        if (MMKVHelper.isUser()) {
-            rootView.updateView(MMKVHelper.getUser());
+class SettingPresenter(rootView: SettingContract.View?) :
+    BasePresenter<SettingContract.View?>(rootView), SettingContract.Presenter {
+    override fun init() {
+        if (isUser()) {
+            rootView!!.updateView(getUser())
         }
     }
 
-    @Override
-    public void saveUser(User user) {
-        Log.e("user => ", user.toString());
-        MMKVHelper.saveUser(user);
-        rootView.saveSuccess();
+    override fun saveUser(user: User?) {
+        Log.e("user => ", user.toString())
+        MMKVHelper.saveUser(user)
+        rootView!!.saveSuccess()
     }
 }

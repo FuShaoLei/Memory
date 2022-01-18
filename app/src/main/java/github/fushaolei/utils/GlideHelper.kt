@@ -1,37 +1,34 @@
-package github.fushaolei.utils;
+package github.fushaolei.utils
 
-import android.net.Uri;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CircleCrop;
-import com.bumptech.glide.request.RequestOptions;
-
-import github.fushaolei.app.App;
-import github.fushaolei.constant.GlobalConstant;
-import github.fushaolei.entity.User;
+import android.net.Uri
+import android.widget.ImageView
+import github.fushaolei.utils.MMKVHelper
+import com.bumptech.glide.Glide
+import github.fushaolei.app.App
+import github.fushaolei.constant.GlobalConstant
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/12
  * @desc:
  */
-public class GlideHelper {
-
+object GlideHelper {
     //TODO 判断path的格式是不是图片的
-    public static void loadImageCDN(String path, ImageView imageView) {
+    @JvmStatic
+    fun loadImageCDN(path: String, imageView: ImageView?) {
         if (!MMKVHelper.isUser()) {
-            return;
+            return
         }
-        User user = MMKVHelper.getUser();
+        val user = MMKVHelper.getUser()
         Glide.with(App.getContext())
-                .load(GlobalConstant.INSTANCE.JSDELIVR_PREFIX + user.getName() + "/" + user.getRepo() + "/" + path)
-                .into(imageView);
+            .load(GlobalConstant.JSDELIVR_PREFIX + user.name + "/" + user.repo + "/" + path)
+            .into(imageView!!)
     }
 
-    public static void loadImageByUri(Uri uri, ImageView imageView) {
+    @JvmStatic
+    fun loadImageByUri(uri: Uri?, imageView: ImageView?) {
         Glide.with(App.getContext())
-                .load(uri)
-                .into(imageView);
+            .load(uri)
+            .into(imageView!!)
     }
 }

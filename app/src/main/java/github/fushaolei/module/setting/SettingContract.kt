@@ -1,24 +1,21 @@
-package github.fushaolei.module.setting;
+package github.fushaolei.module.setting
 
-import github.fushaolei.entity.User;
+import github.fushaolei.entity.User
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/13
  * @desc:
  */
-public interface SettingContract {
+interface SettingContract {
     interface View {
-        void updateView(User user);
-
-        void saveSuccess();
-
-        void saveFail();
+        fun updateView(user: User?)
+        fun saveSuccess()
+        fun saveFail()
     }
 
     interface Presenter {
-        void init();
-
-        void saveUser(User user);
+        fun init()
+        fun saveUser(user: User?)
     }
 }

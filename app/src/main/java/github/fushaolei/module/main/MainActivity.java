@@ -39,6 +39,7 @@ import github.fushaolei.utils.ProgressDialogHelper;
 import github.fushaolei.utils.ToastHelper;
 import github.fushaolei.utils.UploadHelper;
 import github.fushaolei.entity.FileEntity;
+import github.fushaolei.utils.ExtsKt;
 
 /**
  * @Auther: fushaolei
@@ -148,7 +149,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             Uri uri = data.getData();
             showUploadDialog(uri);
         } else if (requestCode == ENTER_DETAIL && resultCode == RESULT_IMG) {
-            Log.e("=>", "有照片被删除了....");
+            ExtsKt.Logg("有照片被删除了....");
             rootPresenter.getRepoList();
         }
     }

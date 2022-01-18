@@ -7,8 +7,9 @@ import com.google.android.material.appbar.MaterialToolbar
 import github.fushaolei.R
 import github.fushaolei.base.BaseActivity
 import github.fushaolei.base.BasePresenter
+import github.fushaolei.module.main.MainPresenter
 
-class WebViewActivity : BaseActivity<BasePresenter<Any>>() {
+class WebViewActivity : BaseActivity<BasePresenter<*>>() {
     private lateinit var toolbar: MaterialToolbar
     private lateinit var webview: WebView
     private lateinit var path: String
@@ -33,12 +34,14 @@ class WebViewActivity : BaseActivity<BasePresenter<Any>>() {
         Handler().postDelayed({ webview.loadUrl(path) }, 500)
     }
 
-    override fun initPresenter(): BasePresenter<Any>? {
-        return null
-    }
+
 
     override fun getLayoutId(): Int {
         return R.layout.activity_webview
+    }
+
+    override fun initPresenter(): BasePresenter<*>? {
+        return null
     }
 
 }

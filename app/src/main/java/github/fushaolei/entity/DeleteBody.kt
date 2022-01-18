@@ -1,40 +1,15 @@
-package github.fushaolei.entity;
+package github.fushaolei.entity
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/11
  * @desc:
  */
-public class DeleteBody {
-    private String message;
-    private String sha;
-
-    public DeleteBody(String message, String sha) {
-        this.message = message;
-        this.sha = sha;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getSha() {
-        return sha;
-    }
-
-    public void setSha(String sha) {
-        this.sha = sha;
-    }
-
-    @Override
-    public String toString() {
+class DeleteBody(var message: String, var sha: String) {
+    override fun toString(): String {
         return "CreateBody{" +
                 "message='" + message + '\'' +
                 ", content='" + sha + '\'' +
-                '}';
+                '}'
     }
 }

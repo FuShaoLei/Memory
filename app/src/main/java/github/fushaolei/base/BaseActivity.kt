@@ -1,55 +1,53 @@
-package github.fushaolei.base;
+package github.fushaolei.base
 
-import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import github.fushaolei.base.BasePresenter
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/12
  * @desc:
  */
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
-    protected P rootPresenter;
+abstract class BaseActivity<P : BasePresenter<*>?> : AppCompatActivity() {
+    @JvmField
+    protected var rootPresenter: P? = null
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
-        rootPresenter = initPresenter();
-        initialize();
-        initView();
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(getLayoutId())
+        rootPresenter = initPresenter()
+        initialize()
+        initView()
     }
-
 
     /**
      * 初始化
      * 进行一些 findViewById ，初始化数据 等操作
      */
-    protected abstract void initialize();
+    protected abstract fun initialize()
 
     /**
      * 初始化界面
      * 用于还原一些数据到视图啊之类的
      */
-    protected abstract void initView();
+    protected abstract fun initView()
 
     /**
      * 初始化presenter
      */
-    protected abstract P initPresenter();
+    protected abstract fun initPresenter(): P?
 
     /**
      * 获取视图id
      */
-    protected abstract int getLayoutId();
+    protected abstract fun getLayoutId():Int
 
-    @Override
-    protected void onDestroy() {
+
+    override fun onDestroy() {
         if (rootPresenter != null) {
-            rootPresenter.clearView();
+            rootPresenter!!.clearView()
         }
-        super.onDestroy();
+        super.onDestroy()
     }
 }

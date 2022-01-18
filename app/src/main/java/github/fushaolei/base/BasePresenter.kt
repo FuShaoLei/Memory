@@ -1,25 +1,25 @@
-package github.fushaolei.base;
+package github.fushaolei.base
 
-import github.fushaolei.service.GitHubService;
-import github.fushaolei.service.ServiceManager;
+import github.fushaolei.service.GitHubService
+import github.fushaolei.service.ServiceManager
 
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/12
  * @desc:
  */
-public abstract class BasePresenter<V> {
-    protected V rootView;
-    protected GitHubService service
-            = ServiceManager.getInstance().getService();
-
-    public BasePresenter(V rootView) {
-        this.rootView = rootView;
+abstract class BasePresenter<V>(rootView: V) {
+    @JvmField
+    protected var rootView: V?
+    @JvmField
+    protected var service = ServiceManager.getInstance().service
+    fun clearView() {
+        if (rootView != null) {
+            rootView = null
+        }
     }
 
-    public void clearView() {
-        if (rootView != null) {
-            rootView = null;
-        }
+    init {
+        this.rootView = rootView
     }
 }

@@ -87,6 +87,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                 .setMessage("确定删除吗？")
                 .setPositiveButton("确定", (dialog, which) -> {
                     rootPresenter.delete(entity.getPath(), entity.getSha());
+
                 })
                 .setNegativeButton("取消", null)
                 .show();
