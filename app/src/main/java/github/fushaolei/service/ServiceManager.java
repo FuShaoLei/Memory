@@ -1,6 +1,6 @@
 package github.fushaolei.service;
 
-import github.fushaolei.constant.HttpConstant;
+import github.fushaolei.constant.GlobalConstant;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -31,7 +31,7 @@ public class ServiceManager {
 
     private ServiceManager() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(HttpConstant.HOST)
+                .baseUrl(GlobalConstant.INSTANCE.HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

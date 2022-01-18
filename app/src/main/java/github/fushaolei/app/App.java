@@ -8,7 +8,6 @@ import com.tencent.mmkv.MMKV;
 /**
  * @Auther: fushaolei
  * @datetime: 2021/2/11
- * @desc:
  */
 public class App extends Application {
     private static Context context;

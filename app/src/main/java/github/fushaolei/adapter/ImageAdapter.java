@@ -17,9 +17,9 @@ import github.fushaolei.entity.User;
 import github.fushaolei.utils.MMKVHelper;
 
 /**
+ * image适配器
  * @Auther: fushaolei
  * @datetime: 2021/2/9
- * @desc: image适配器
  */
 public class ImageAdapter extends BaseQuickAdapter<FileEntity, ImageAdapter.ViewHolder> {
 

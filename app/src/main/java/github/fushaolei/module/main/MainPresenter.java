@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import github.fushaolei.base.BasePresenter;
-import github.fushaolei.constant.CommitConstant;
+import github.fushaolei.constant.GlobalConstant;
 import github.fushaolei.entity.BaseResponse;
 import github.fushaolei.entity.CreateBody;
 import github.fushaolei.entity.FileEntity;
@@ -82,7 +82,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
     private void uploadFile(String path) {
 //        rootView.showLoading();
-        CreateBody body = new CreateBody(CommitConstant.UPLOAD, UploadHelper.encodeImageToBase64(path));
+        CreateBody body = new CreateBody(GlobalConstant.INSTANCE.UPDATE_MSG, UploadHelper.encodeImageToBase64(path));
         User user = MMKVHelper.getUser();
         String fileName = UploadHelper.getFileName(path);
 

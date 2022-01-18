@@ -8,7 +8,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 
 import github.fushaolei.app.App;
-import github.fushaolei.constant.HttpConstant;
+import github.fushaolei.constant.GlobalConstant;
 import github.fushaolei.entity.User;
 
 /**
@@ -25,7 +25,7 @@ public class GlideHelper {
         }
         User user = MMKVHelper.getUser();
         Glide.with(App.getContext())
-                .load(HttpConstant.DEFAULT_CDN + user.getName() + "/" + user.getRepo() + "/" + path)
+                .load(GlobalConstant.INSTANCE.JSDELIVR_PREFIX + user.getName() + "/" + user.getRepo() + "/" + path)
                 .into(imageView);
     }
 

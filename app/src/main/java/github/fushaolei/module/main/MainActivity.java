@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import github.fushaolei.base.BaseActivity;
-import github.fushaolei.constant.WebViewConstant;
+import github.fushaolei.constant.GlobalConstant;
 import github.fushaolei.module.setting.SettingActivity;
 import github.fushaolei.module.WebViewActivity;
 import github.fushaolei.module.detail.DetailActivity;
@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                     break;
                 case R.id.readme:
                     Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-                    intent.putExtra("path", WebViewConstant.README);
+                    intent.putExtra("path", GlobalConstant.INSTANCE.README_URL);
                     startActivity(intent);
                     break;
             }
