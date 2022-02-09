@@ -5,11 +5,4 @@ package github.fushaolei.entity
  * @datetime: 2021/2/11
  * @desc:
  */
-class CreateBody(var message: String, var content: String) {
-    override fun toString(): String {
-        return "CreateBody{" +
-                "message='" + message + '\'' +
-                ", content='" + content + '\'' +
-                '}'
-    }
-}
+data class CreateBody(var message: String, var content: String)

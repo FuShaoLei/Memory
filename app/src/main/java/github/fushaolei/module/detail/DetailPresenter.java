@@ -25,7 +25,6 @@ public class DetailPresenter extends BasePresenter<DetailContract.View> implemen
         super(rootView);
     }
 
-
     @Override
     public void delete(String path, String sha) {
         Log.e("=>", "presenter delete begin");
