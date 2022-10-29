@@ -2,46 +2,43 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="configData"
+            type="com.fushaolei.android.bean.Configuration" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_setting"
+        <EditText
+            android:id="@+id/et_input"
             android:layout_width="0dp"
+            android:text="@={configData.githubToken}"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:background="#f3f4f5"
-            android:gravity="center"
-            android:paddingVertical="15dp"
-            android:text="@string/setting"
-            android:textColor="#333"
-            android:textSize="17sp"
+            android:selection="@{configData.githubToken.length()}"
+            android:layout_marginHorizontal="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3"
-            tools:text="设置" />
+            app:layout_constraintVertical_bias="0.4" />
 
         <TextView
-            android:id="@+id/tv_upload"
+            android:id="@+id/tv_ok"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="17dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="40dp"
             android:background="#f3f4f5"
             android:gravity="center"
-            android:paddingVertical="15dp"
-            android:text="@string/upload_img"
+            android:paddingVertical="17dp"
+            android:text="@string/sure"
             android:textColor="#333"
-            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_setting"
-            tools:text="上传图片" />
+            app:layout_constraintTop_toBottomOf="@id/et_input" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
