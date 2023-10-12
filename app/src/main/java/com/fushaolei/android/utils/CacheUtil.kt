@@ -1,10 +1,7 @@
 package com.fushaolei.android.utils
 
 import android.content.Context
-import androidx.annotation.Nullable
 import com.fushaolei.android.App
-import com.fushaolei.android.bean.Configuration
-import com.google.gson.Gson
 
 object CacheUtil {
 
@@ -18,14 +15,11 @@ object CacheUtil {
     }
 
     /**
-     * 获取存储对象的json字符串。。
+     * 获取存储对象的json字符串
      */
-    @Nullable
     fun getObjectStr(key: String): String? {
         if (!sp.contains(key)) return null
-        val originStr = sp.getString(key, "")
-        LogUtil.e("originStr = $originStr")
-        return originStr
+        return sp.getString(key, "")
     }
 
     fun saveString(key: String, value: String) {
